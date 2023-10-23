@@ -13,6 +13,7 @@ class Helper
         $sql = 'SELECT '.implode(', ', $qbSelect);
         $parser = new PHPSQLParser();
         $parsed = $parser->parse($sql);
+        $key = [];
 
         $columnAliases = [];
         foreach ($parsed['SELECT'] as $select) {
