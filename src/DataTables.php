@@ -71,7 +71,7 @@ class DataTables
     /**
      * Add extra column
      * @param string $key The key of the column
-     * @param $callback The extra column callback, like a formatter
+     * @param $callback The extra column callback, LIKE a formatter
      * 
      * @return $this
      */
@@ -215,7 +215,7 @@ class DataTables
                                 ? $this->columnAliases[$column]
                                 : $column;
 					
-					$globalSearch[] = sprintf("`%s` LIKE '%%%s%%'", $column, $keyword);
+					$globalSearch[] = sprintf("%s ILIKE '%%%s%%'", $column, $keyword);
 				}
 			}
 		}
@@ -245,7 +245,7 @@ class DataTables
                             ? $this->columnAliases[$column]
                             : $column;
 
-				$columnSearch[] = sprintf("`%s` LIKE '%%%s%%'", $column, $keyword);
+				$columnSearch[] = sprintf("%s ILIKE '%%%s%%'", $column, $keyword);
 			}
 		}
 
@@ -297,7 +297,7 @@ class DataTables
                         $column = $this->returnedFieldNames[$fieldIndex];
                     }
 
-					$orders[] = sprintf('`%s` %s', $column, strtoupper($order['dir']));
+					$orders[] = sprintf('%s %s', $column, strtoupper($order['dir']));
 				}
 			}
 
